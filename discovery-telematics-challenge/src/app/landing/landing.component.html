@@ -1,0 +1,86 @@
+<div style="text-align: center; margin: auto; width: 600px; margin-top: 30px;">
+    <h1>Discovery Telematics Challenge</h1>
+    <br />
+    <h2>
+        Challenge 1: <small>Sighting data visualisation</small>
+    </h2>
+    <br />
+    <h3>
+        1) Collect information through API.
+    </h3>
+    <p>
+        Upon receiving the test I attempted to download the required data from a browser.
+        This did not work and I then attempted to access the data programmatically using python.
+        This was pretty challenging because I have not used pyhton since university so I needed to do a bit of self
+        study and because I was struggling to download the required data I felt like I was doing something wrong.
+        Again this did not work and I attempted using a nuget package and dotnet core.
+        Eventually figuring out that there was a problem on Amazon I was sent the required data and manually added it to
+        my solution.
+    </p>
+    <br />
+    <h3>
+        2) Wrangle data.
+    </h3>
+    <p>
+        In order to use the data I created an angular component to read a CSV file and converted it into a JSON object.
+        I created data models to map the CSV file so that I could use them later when populating the heat map.
+        I then uploaded the object onto Google Firestore to use on my dashboard component. Which is responsible for
+        loading the heat map.
+        <br />
+        <button mat-button color="primary" [routerLink]="['/drop-csv']">This is where I uploaded the files</button>
+    </p>
+    <br />
+    <h3>
+        3) Plot on any mapping tool to create a heat map.
+    </h3>
+    <p>
+        In order to plot the data I initially looked at using d3.js and didn't find anything usable.
+        I then looked at using Google Maps and found that I needed to enable the Google Maps API. I found a nice example
+        <a href="https://developers.google.com/maps/documentation/javascript/examples/layer-heatmap">here</a>.
+        <br/>
+        <br/>
+        <button mat-button color="primary" [routerLink]="['/dashboard']">Check the solution</button>
+    </p>
+    <br />
+    <h3>
+        4) Write up any challenges you faced, how you approached the problem and any insights from the data.
+    </h3>
+    <p>
+        An interesting problem I faced when trying to solve the challenge was the fact that the coordinates had a lot of decimal points. 
+        This meant that when I plotted the heat map it did not come out very clearly. 
+        In order to solve this I created a hash map and rounded the coordinates to have less decimals. If the coordinates already existed then I gave them a weight so that information would not be lost.
+        <br/>
+        <br/>
+        If you would like to look at the code please <a href="https://github.com/DevinNorman/Discovery-Challenge">click here</a>.
+        <br/>
+        <br/>
+        The heat map with less items had hot spots around Fairmont Ridge, Fairvale and a little bit around Sandton. The heat map with more hot spots had hot spots around Sandton and at Brentwood estate. 
+        I also noticed the heat map followed more along the lines of the main roads. I would have also liked to create a heat map and give weight to the spots by speed rather that just number of coordinates in that area.
+        This would show locations with the most movement which I suspect would be roads rather than where a device is stationary such as home or office.
+    </p>
+    <br/>
+    <br/>
+    <h2>
+        Challenge 4: <small>Devops</small>
+    </h2>
+    <br/>
+    <p>
+        Given the short timelines and wanting to deliver this challenge as quickly as possible I did not attempt challenge 4. I have not worked with Bitrise.io before but would feel comfortable self studying and producing a file if required.
+        <br/>
+        <br/>
+        In my day to day job I use git-flow to create feature branches, hotfixes and releases. Please see <a href="https://github.com/DevinNorman/Discovery-Challenge">my git repo</a> to see this setup.
+    </p>
+    <br />
+    <br/>
+    <h2>
+        Challenge 5: <small>Devops</small>
+    </h2>
+    <br/>
+    <p>
+        I did not attempt challenge 5. I feel I would need to spend a lot of time researching a solution to creating an app that scans for available bluetooth devices. 
+        I did however offer help to a friend back in university for his thesis where he used wifi signal strenghts to locate his device and use it as a "GPS" indoors. 
+        There were some interesting problems to solve with his project.
+        I have also turned a Raspberry Pi into a bluetooth receiver to play music in my car (My car didn't have bluetooth at the time so I had to improvise).
+    </p>
+    <br />
+</div>

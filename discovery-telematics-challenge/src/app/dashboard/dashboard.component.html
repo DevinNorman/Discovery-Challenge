@@ -1,0 +1,64 @@
+<mat-spinner class="spinner" *ngIf="loading" style="top: 0;"></mat-spinner>
+
+<div [style.display]="loading ? 'none' : 'block'" style="width: 100%;">
+    <div style="width: 100%;">
+        <table class="recording-table">
+            <tr>
+                <th *ngFor="let col of displayedColumns">
+                    {{col}}
+                </th>
+            </tr>
+            <tr *ngFor="let recording of recordingsAsync | async">
+                <td>
+                    {{recording['name']}}
+                </td>
+                <td>
+                    {{recording['createdDate']}}
+                </td>
+                <td>
+                    {{recording['recordings'].length}}
+                </td>
+                <td>
+                    <button mat-button color="primary" (click)="changeMap(recording)">SELECT HEAT MAP</button>
+                </td>
+            </tr>
+        </table>
+        <div class="">
+            <table class="recording-table">
+                <tr>
+                    <th>
+                        Number of Devices
+                    </th>
+                    <th>
+                        Min Start Time
+                    </th>
+                    <th>
+                        Max Start Time
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        {{getNumberOfDevices()}}
+                    </td>
+                    <td>
+                        {{getMinDate()}}
+                    </td>
+                    <td>
+                        {{getMaxDate()}}
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="floating-panel">
+        <button (click)="toggleHeatmap()">Toggle Heatmap</button>
+        <button (click)="changeGradient()">Change gradient</button>
+        <button (click)="changeRadius()">Change radius</button>
+        <button (click)="changeOpacity()">Change opacity</button>
+    </div>
+
+    <div style="width: 100%; height: 800px;">
+        <div style="width: 100%; height: 100%;" #mapContainer id="map"></div>
+    </div>
+</div>

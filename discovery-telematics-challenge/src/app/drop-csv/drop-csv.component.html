@@ -1,0 +1,11 @@
+<mat-spinner class="spinner" *ngIf="loading || uploading" style="top: 0;"></mat-spinner>
+
+<div [style.display]="loading || uploading ? 'none' : 'block'" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center;">
+    <ngx-file-btn [(config)]="ngxFileParserConfig" (parsedFile)="handleParsedFile($event)"
+        (processing)="processing($event)">
+    </ngx-file-btn>
+    <br/>
+    <p>
+        There is currently no validation on the file. Please only upload valid files.
+    </p>
+</div>

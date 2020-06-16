@@ -1,0 +1,17 @@
+.floating-panel {
+  background-color: #fff;
+  border: 1px solid #999;
+  left: 25%;
+  padding: 5px;
+  position: absolute;
+  z-index: 5;
+}
+
+.recording-table {
+  margin: auto;
+  padding-top: 50px;
+}
+
+.recording-table td, .recording-table th {
+  padding: 5px;
+}

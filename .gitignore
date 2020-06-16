@@ -67,3 +67,4 @@ node_modules/
 
 
 environment.*ts
+discovery-telematics-challenge/public*
